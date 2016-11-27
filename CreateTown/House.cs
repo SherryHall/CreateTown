@@ -32,16 +32,17 @@ namespace CreateTown
 		public int Zip { get; set; }
 		public string FullAddress
 		{
-			get { return string.Format("{ 0}, { 1}, { 2}, { 3}, { 4}, { 5}", Address1, Address2, City, State, Zip); }
+			get { return string.Format("{0}, {1}, {2}, {3}, {4}", Address1, Address2, City, State, Zip); }
 		}
 
 
-		public House(string name, int currentOccupants, int bathRooms, int bedRooms, int floors, int numberOfRoom, double length, double width, double height, string address1, string address2, string city, string state, int zip)
+		public House(string name, string constructionMaterial, int currentOccupants, int bathRooms, int bedRooms, int floors, int numberOfRoom, double length, double width, double height, string address1, string address2, string city, string state, int zip)
 		{
 			this.BuildingType = "House";
 			this.Name = name;
+			this.ConstructionMaterial = constructionMaterial;
 			this.BathRooms = bathRooms;
-			this.BathRooms = bedRooms;
+			this.BedRooms = bedRooms;
 			this.Floors = floors;
 			this.NumberOfRoom = numberOfRoom;
 			this.Length = length;

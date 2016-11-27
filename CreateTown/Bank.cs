@@ -15,7 +15,6 @@ namespace CreateTown
 		public int CurrentOccupants { get; set; }
 
 		public int BathRooms { get; set; }
-		public int BedRooms { get; set; }
 		public int Floors { get; set; }
 		public int NumberOfRoom { get; set; }
 
@@ -32,16 +31,18 @@ namespace CreateTown
 		public int Zip { get; set; }
 		public string FullAddress
 		{
-			get { return string.Format("{ 0}, { 1}, { 2}, { 3}, { 4}, { 5}", Address1, Address2, City, State, Zip); }
+			get { return string.Format("{0}, {1}, {2}, {3}, {4}, {5}", Address1, Address2, City, State, Zip); }
 		}
 
+		private double AmountOfMoney;
 
-		public Bank (string name, int currentOccupants, int bathRooms, int bedRooms, int floors, int numberOfRoom, double length, double width, double height, string address1, string address2, string city, string state, int zip)
+
+		public Bank (string name, string constructionMaterial, int currentOccupants, int bathRooms, int floors, int numberOfRoom, double length, double width, double height, string address1, string address2, string city, string state, int zip)
 		{
 			this.BuildingType = "Bank";
 			this.Name = name;
+			this.ConstructionMaterial = constructionMaterial;
 			this.BathRooms = bathRooms;
-			this.BathRooms = bedRooms;
 			this.Floors = floors;
 			this.NumberOfRoom = numberOfRoom;
 			this.Length = length;
@@ -52,6 +53,21 @@ namespace CreateTown
 			this.City = city;
 			this.State = state;
 			this.Zip = zip;
+		}
+
+		public void DepositMoney(double depositAmt)
+		{
+			AmountOfMoney += depositAmt;
+		}
+
+		public void WithdrawMoney(double withdrawAmt)
+		{
+			AmountOfMoney -= withdrawAmt;
+		}
+
+		public double GetBalance()
+		{
+			return AmountOfMoney;
 		}
 
 		public int DecreaseOccupants()
@@ -78,5 +94,5 @@ namespace CreateTown
 
 	}
 }
-	}
-}
+	
+
